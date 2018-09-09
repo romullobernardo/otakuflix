@@ -2,7 +2,9 @@
   "name": "anime-dois",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://romullobernardo.github.io/otakuflix",
   "dependencies": {
+    "gh-pages": "^1.2.0",
     "install": "^0.12.1",
     "jquery": "^3.3.1",
     "materialize-css": "^1.0.0-rc.2",
@@ -16,6 +18,7 @@
     "redux-thunk": "^2.3.0"
   },
   "scripts": {
+    "deploy": "npm run build&&gh-pages -d  build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",

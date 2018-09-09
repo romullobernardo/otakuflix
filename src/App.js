@@ -1,5 +1,5 @@
 import React, { Component, Fragment }             from 'react'
-import { HashRouter as Router, Route, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { Provider }                               from 'react-redux'    
 
 import Home                                       from './components/Home'
