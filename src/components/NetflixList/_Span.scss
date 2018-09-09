@@ -1,0 +1,47 @@
+
+.left-controls 
+{
+    margin-top: 160px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4%;
+    height: 50px;
+    z-index: 40;
+    opacity: 0.8;
+
+    cursor: pointer;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+  
+.right-controls 
+{
+    margin-top: 160px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 4%;
+    height: 50px;
+    z-index: 40;
+    opacity: 0.8;
+
+    cursor: pointer;
+    display: flex;    
+    text-align: center;
+    justify-content: center;
+}
+
+.icon
+{
+    color: white;
+
+    &:hover 
+    {
+        opacity: 1;
+        color: black;
+    }
+}
+
+

@@ -1,0 +1,131 @@
+@import 'Span';
+
+
+// === MIXIN === //
+@mixin maxMediaQueries($arg...) 
+{
+
+  @if length($arg) ==1 
+  {
+    @media screen and (max-width: nth($arg, 1))
+    {
+      @content;
+    }
+  }
+
+  @if length($arg) ==2 
+  {
+    @media screen and (max-width: nth($arg, 1)) and (min-width: nth($arg, 2)) 
+    {
+      @content;
+    }
+  }
+
+}
+
+
+
+// === MAIN === //
+
+
+
+
+// Não sei o que faz
+html 
+{
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+// Não sei o que faz
+::-webkit-scrollbar 
+{
+    width: 0px;
+    background: transparent;
+}
+
+
+.list-container 
+{
+    max-width: 100%;
+    padding: 0px;
+    position: relative;
+}
+
+
+// Row com a lista de ítems
+#rowTile 
+{
+    display: flex;
+    width: 100%;
+    transition: 0.3s transform;
+
+    // Lista anda pra esquerda
+    &:hover 
+    {
+        transform: translate3D(-40px, 0, 0);
+    }
+}
+
+// A lista em sí <ul>
+#content 
+{
+    width: 600em;
+    list-style-type: none;
+    padding: 50px 0 50px 0;
+}
+
+
+// <div> que reveste a lista
+// Esconde o que for overflow
+.module-section 
+{
+    max-width: 100%;
+    overflow: hidden;
+}
+
+
+
+
+
+// === TELAS GRANDES === //
+@include maxMediaQueries(1400px) 
+{
+    .rowTile 
+    {
+        &:hover 
+        {
+            transform: translate3d(-110px, 0, 0);
+        }
+    }
+
+}
+ 
+
+
+// === TELAS MÉDIAS === //
+@include maxMediaQueries(750px) 
+{
+    .rowTile 
+    {
+        // Row vai andar pra esquerda
+        &:hover 
+        {
+            transform: translate3d(-70px, 0, 0);
+        }
+    }
+}
+
+
+// === TELAS PEQUENAS === //
+@include maxMediaQueries(445px) 
+{
+    .rowTile 
+    {
+        &:hover 
+        {
+            transform: translate3d(-60px, 0, 0);
+        }
+    }
+
+}
