@@ -22,7 +22,7 @@ class App extends Component
     {
         return (
         <Provider store={store}>
-            <Router >
+            <Router basename={process.env.PUBLIC_URL}>
                 <Fragment>
 
                     <Header />
