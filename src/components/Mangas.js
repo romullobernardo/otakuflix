@@ -55,7 +55,7 @@ class Mangas extends Component
 const mapStateToProps = state =>
 {
     return {
-        mangas: state.items.mangas
+        mangas: state.top.mangas
     }
 }
 

@@ -56,7 +56,7 @@ class Animes extends Component
 const mapStateToProps = state =>
 {
     return {
-        animes: state.items.animes
+        animes: state.top.animes
     }
 }
 
