@@ -2,9 +2,7 @@ import constants from '../constants'
 
 const initialState = 
 {
-    animes: [],
-    mangas: [],
-    items: '',
+    synopsis: '',
     title: '',
     trailer: '',
     id: '',
@@ -13,26 +11,14 @@ const initialState =
 }
 
 
-export const items = (state = initialState, action) =>
+export default (state = initialState, action) =>
 {
     switch (action.type) 
     {
-        case constants.SET_TOP_ANIMES:
-            return Object.assign({}, state, 
-                {
-                    animes: action.animeArray 
-                })
-
-        case constants.SET_TOP_MANGAS:
-            return Object.assign({}, state, 
-                {
-                    mangas: action.mangaArray
-                })
-
         case constants.SET_ANIME_DESCRIPTION:
             return Object.assign({}, state, 
                 {
-                  items: action.item,
+                  synopsis: action.synopsis,
                   title: action.title,
                   trailer: action.trailer,
                   id: action.id,
@@ -42,7 +28,7 @@ export const items = (state = initialState, action) =>
         case constants.SET_MANGA_DESCRIPTION:
             return Object.assign({}, state, 
                 {
-                    items: action.item,
+                    synopsis: action.synopsis,
                     title: action.title,
                     trailer: action.trailer,
                     id: action.id,

@@ -53,7 +53,12 @@ class Description extends Component
 
     render() 
     {
-        const { description, title, trailer, id, contentType, mangaImage } = this.props 
+        const { description, title, trailer, id, contentType, mangaImage, isLoading } = this.props 
+
+        if (isLoading) 
+        {
+            return <p className='center white-text'>Loading…</p>
+        }
 
         return (
             <div>                
@@ -66,12 +71,14 @@ class Description extends Component
 const mapStateToProps = state =>
 {
     return {
-        description: state.items.items,
-        title: state.items.title,
-        trailer: state.items.trailer,
-        id: state.items.id,
-        mangaImage: state.items.mangaImage,
-        contentType: state.items.contentType
+        description: state.description.synopsis,
+        title: state.description.title,
+        trailer: state.description.trailer,
+        id: state.description.id,
+        mangaImage: state.description.mangaImage,
+        contentType: state.description.contentType,
+
+        isLoading: state.utils.isLoading
     }
 }
 

@@ -42,15 +42,34 @@ export const getMangas = () =>
 }
 
 
+export const itemsIsLoading = bool => 
+{
+    return {
+        type: constants.ITEMS_IS_LOADING,
+        isLoading: bool
+    }
+}
+
+
 export const fetchItem = (item, contentType) =>
 {
     const url1 = `https://api.jikan.moe/v3/${contentType}/`
 
     return (dispatch) =>
     {
-        fetch(`${url1}${item.mal_id}`)
+        dispatch(itemsIsLoading(true))
+
+
+        fetch(`${url1}${item}`)
         .then( r => 
         {
+            if (!r.ok) 
+            {
+                throw Error(r.statusText)
+            }
+
+            dispatch(itemsIsLoading(false))
+
             return r.json()
         })
 
@@ -61,7 +80,8 @@ export const fetchItem = (item, contentType) =>
                 dispatch(
                     {
                         type: constants.SET_ANIME_DESCRIPTION,
-                        item: data.synopsis,
+
+                        synopsis: data.synopsis,
                         title: data.title,
                         trailer: data.trailer_url,
                         id: data.mal_id,
@@ -73,10 +93,11 @@ export const fetchItem = (item, contentType) =>
                 dispatch(
                     {
                         type: constants.SET_MANGA_DESCRIPTION,
-                        item: data.synopsis,
+
+                        synopsis: data.synopsis,
                         title: data.title,
                         id: data.mal_id,
-                        mangaImg: item.image_url,
+                        mangaImg: data.image_url,
                         contentType
                     })
             }

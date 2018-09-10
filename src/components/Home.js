@@ -4,6 +4,8 @@ import { connect }                         from 'react-redux'
 import { NetflixList }                     from './NetflixList'
 import { fetchItem, getAnimes, getMangas } from '../actions/items'
 
+import                                          'materialize-css/dist/css/materialize.min.css'
+
 
 class Home extends Component 
 {
@@ -50,9 +52,8 @@ class Home extends Component
 const mapStateToProps = state =>
 {
     return {
-        animes: state.items.animes,
-        mangas: state.items.mangas,
-        items: state.items.items
+        animes: state.top.animes,
+        mangas: state.top.mangas
     }
 }
 

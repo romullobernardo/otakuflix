@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
 import { findDOMNode }      from 'react-dom'
 import $                    from 'jquery'
-import                           './ContentList.scss'
 import ListItem             from './ListItem'
+import Proptypes            from 'prop-types'
+
+import                           './ContentList.scss'
+
 
 
 class ContentList extends Component 
@@ -41,9 +44,9 @@ class ContentList extends Component
             const el = findDOMNode(this.refs.content)
             $(el).animate(
                 {
-                    marginLeft: "+=350px"
+                    marginLeft: '+=350px'
                 },
-                "fast"
+                'fast'
             )
         }
     }
@@ -63,9 +66,9 @@ class ContentList extends Component
             const el = findDOMNode(this.refs.content)
             $(el).animate(
                 {
-                    marginLeft: "-=350px"
+                    marginLeft: '-=350px'
                 },
-                "fast"
+                'fast'
             )
         }
     }
@@ -77,23 +80,23 @@ class ContentList extends Component
         const { items } = this.props
 
         return (
-             <div className="list-container">             
+             <div className='list-container'>             
 
                 <span
                     onClick={this.handleLeftClick}
-                    className="left-controls"
-                    role="button"
+                    className='left-controls'
+                    role='button'
                 >
-                    <i className="material-icons medium icon">
+                    <i className='material-icons medium icon'>
                         keyboard_arrow_left
                     </i>    
                 </span>
 
-                <div className="module-section clearfix">                 
+                <div className='module-section clearfix'>                 
 
-                    <ul id="content" ref="content">
+                    <ul id='content' ref='content'>
 
-                        <div id="rowTile">
+                        <div id='rowTile'>
                             {this.renderList(items)}
                         </div>
                         
@@ -103,10 +106,10 @@ class ContentList extends Component
 
                 <span
                     onClick={this.handleRightClick}
-                    className="right-controls"
-                    role="button"
+                    className='right-controls'
+                    role='button'
                 >
-                    <i className="material-icons medium icon">
+                    <i className='material-icons medium icon'>
                         keyboard_arrow_right
                     </i> 
                 </span>
@@ -115,5 +118,14 @@ class ContentList extends Component
         )
     }
 }
+
+
+ContentList.propTypes = 
+{
+    fetchItem: Proptypes.func,
+    item: Proptypes.object,
+    contentType: Proptypes.string
+}
+
 
 export default ContentList
