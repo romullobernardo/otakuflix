@@ -12,11 +12,17 @@ Link to the app: https://romullobernardo.github.io/otakuflix/
 
 <br />
 
+### Technologies used
 
+- React
+- Redux
+- React Router
+- Redux Thunk
+- SCSS
+- Materialize Framework
+- Jikan API
 
 <br />
 
-
-<br />
 
 Enjoy!
