@@ -7,6 +7,7 @@ Link to the app: https://romullobernardo.github.io/otakuflix/
 
 <br />
 
+### Small screens 
 <img width="578" alt="02" src="https://user-images.githubusercontent.com/40496625/45378648-0fedd200-b5cc-11e8-8645-42ab7acd09da.png">
 
 <br />
